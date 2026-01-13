@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MatBlox</title>
+  <title>My Website</title>
 
   <style>
     body {
@@ -23,6 +23,12 @@
 
     main {
       padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-top: 60px;
     }
 
     .button {
@@ -33,14 +39,38 @@
       text-decoration: none;
       border-radius: 6px;
       font-size: 18px;
+      margin-top: 20px;
     }
 
     .button:hover {
       background-color: #0056b3;
     }
 
+    .news {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .news-item {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-item h3 {
+      margin-top: 0;
+    }
+
+    .news-date {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
     footer {
-      margin-top: 60px;
+      margin-top: 80px;
       font-size: 14px;
       color: #777;
     }
@@ -49,17 +79,45 @@
 
 <body>
   <header>
-    <h1>Welcome to MatBlox</h1>
-    <p>Your source for Wrestlers Desitny rankings and news!</p>
+    <h1>Welcome to My Website</h1>
+    <p>Your source for rankings and updates</p>
   </header>
 
   <main>
-    <a class="button" href="rankings.html">View Rankings</a>
-    <a class="button" href="news.html">View News</a>
+    <!-- Rankings Section -->
+    <section>
+      <h2>Rankings</h2>
+      <p>Check out the latest rankings.</p>
+      <a class="button" href="rankings.html">View Rankings</a>
+    </section>
+
+    <!-- News Section -->
+    <section>
+      <h2>Latest News</h2>
+
+      <div class="news">
+        <div class="news-item">
+          <div class="news-date">January 12, 2026</div>
+          <h3>Website Launch</h3>
+          <p>
+            Welcome to the official launch of the website! Rankings and news
+            will be updated regularly, so check back often.
+          </p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">January 10, 2026</div>
+          <h3>Rankings Updated</h3>
+          <p>
+            The latest rankings are now live. Some big changes this week!
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2026 MatBlox</p>
+    <p>© 2026 My Website</p>
   </footer>
 </body>
 </html>
