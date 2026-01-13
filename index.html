@@ -1,132 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MatBlox Rankings</title>
-<style>
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  select {
-    display: block;
-    margin: 0 auto 20px auto;
-    padding: 8px 12px;
-    font-size: 16px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  th {
-    background-color: #2c3e50;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-  .rank { font-weight: bold; text-align: center; }
-  .record { text-align: center; }
-  .prev-rank { text-align: center; color: #888; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      padding: 60px 20px;
+      background-color: #222;
+      color: white;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
 </head>
+
 <body>
-<h1>MatBlox Rankings</h1>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <p>Your source for rankings and updates</p>
+  </header>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScV0xEgXZpKGdWb9HD0r76VD-GCwzP4KT9MJ-NyrUeIiRGNHg/viewform?usp=dialog">Sign up for the first tournament here!</a>
+  <main>
+    <a class="button" href="rankings.html">View Rankings</a>
+  </main>
 
-<label for="weekSelect">Select Week:</label>
-<select id="weekSelect" onchange="updateTable()">
-  <option value="preseason">Preseason</option>
-  <option value="week1">Week 1</option>
-</select>
-
-<table id="rankingsTable">
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Wrestler</th>
-      <th>School</th>
-      <th>Record</th>
-      <th>Prev</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Rankings will appear here -->
-  </tbody>
-</table>
-
-<script>
-  // Ranking data: 'prev' can be a number or a string like "NR"
-  const rankingsData = {
-    preseason: [
-      { rank: 1, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 2, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 3, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 4, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 5, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 6, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 7, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 8, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 9, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 10, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 11, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 12, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 13, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 14, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 15, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 16, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 17, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 18, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 19, name: "NoData", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 20, name: "NoData", school: "N/A", record: "0-0", prev: "-" }
-    ],
-    
-    week1: [
-     { rank: 1, name: "Jax Roblox", school: "Bloxy McCort", record: "5-0", prev: "1" }
-    ]
-   
-  };
-
-  function updateTable() {
-    const week = document.getElementById('weekSelect').value;
-    const tbody = document.querySelector('#rankingsTable tbody');
-    tbody.innerHTML = ''; // clear current table
-
-    rankingsData[week].forEach(wrestler => {
-      const row = document.createElement('tr');
-      // Display prev as-is (number or string)
-      row.innerHTML = `
-        <td class="rank">${wrestler.rank}</td>
-        <td>${wrestler.name}</td>
-        <td>${wrestler.school}</td>
-        <td class="record">${wrestler.record}</td>
-        <td class="prev-rank">${wrestler.prev}</td>
-      `;
-      tbody.appendChild(row);
-    });
-  }
-
-  // Initialize table with Week 1
-  updateTable();
-</script>
+  <footer>
+    <p>© 2026 My Website</p>
+  </footer>
 </body>
 </html>
-
