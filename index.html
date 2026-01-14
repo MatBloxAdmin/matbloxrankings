@@ -109,10 +109,47 @@
       font-size: 14px;
       color: #777;
     }
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #222;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  margin-left: 20px;
+}
+    
   </style>
 </head>
 
 <body>
+
+  <nav class="top-nav">
+  <a href="index.html" class="logo">My Website</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="rankings.html">Rankings</a>
+  </div>
+</nav>
+  
   <header>
     <h1>Welcome to MatBlox</h1>
     <p>Your source for Wrestlers Destiny rankings and updates</p>
