@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MatBlox Rankings</title>
-<style>
 
+<style>
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -33,51 +32,80 @@
 .nav-links a {
   margin-left: 20px;
 }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  select {
-    display: block;
-    margin: 0 auto 20px auto;
-    padding: 8px 12px;
-    font-size: 16px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  th {
-    background-color: #2c3e50;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  tr:hover {
-    background-color: #f1f1f1;
-  }
 
-  
-  
-  .rank { font-weight: bold; text-align: center; }
-  .record { text-align: center; }
-  .prev-rank { text-align: center; color: #888; }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+select {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #2c3e50;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.rank {
+  font-weight: bold;
+  text-align: center;
+}
+
+.record {
+  text-align: center;
+}
+
+.prev-rank {
+  text-align: center;
+  color: #888;
+}
+
+/* News section styling */
+section {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.news-date {
+  color: #888;
+  font-size: 14px;
+}
 </style>
 </head>
+
 <body>
 
 <nav class="top-nav">
@@ -88,10 +116,29 @@
   </div>
 </nav>
 
-  
+<!-- NEWS SECTION ABOVE RANKINGS -->
+<section>
+  <h2>Latest News</h2>
+
+  <div class="news">
+    <div class="news-item">
+      <div class="news-date">January 18, 2026</div>
+      <h3>Preseason Rankings</h3>
+      <p>
+        Preseason Rankings are out.<br>
+        Dreday356og debuts as No. 1 in the preseason poll because he reached global #1 on the Wrestler’s Destiny elo rankings.<br>
+        No. 2 Legenito placed third at Ironman and has other tournament placements that allow him to fall into the #2 spot.<br>
+        With no other accolades to go off of it was hard to fill the rest of the No. 3 through No. 20 spots — but they will be more clear when the first tournament is over!
+      </p>
+    </div>
+  </div>
+</section>
+
 <h1>MatBlox Rankings</h1>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScV0xEgXZpKGdWb9HD0r76VD-GCwzP4KT9MJ-NyrUeIiRGNHg/viewform?usp=dialog">Sign up for the first tournament here!</a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScV0xEgXZpKGdWb9HD0r76VD-GCwzP4KT9MJ-NyrUeIiRGNHg/viewform?usp=dialog">
+  Sign up for the first tournament here!
+</a>
 
 <label for="weekSelect">Select Week:</label>
 <select id="weekSelect" onchange="updateTable()">
@@ -110,84 +157,61 @@
     </tr>
   </thead>
   <tbody>
-    <!-- Rankings will appear here -->
+    <!-- Rankings will be injected here -->
   </tbody>
 </table>
 
- <section>
-      <h2>Latest News</h2>
-
-      <div class="news">
-        <div class="news-item">
-          <div class="news-date">January 18, 2026</div>
-          <h3>Preseason Rankings</h3>
-          <p>
-            Preseason Rankings are out
-            <br>
-            Dreday356og debuts as No. 1 in the preseason poll because he reached global #1 on the Wrestler’s Destiny elo rankings. 
-            <br>
-            No. 2 Legenito placed third at Ironman and has other tournament placements that allow him to fall into the #2 spot
-            <br>
-            With no other accolades to go off of it was hard to fill the rest of the No. 3 through No. 20 spots - but they will be more clear when the first tournament is over!
-          </p>
-        </div>
-      </div>
-    </section>
-  
 <script>
-  // Ranking data: 'prev' can be a number or a string like "NR"
-  const rankingsData = {
-    preseason: [
-      { rank: 1, name: "Dreday356og", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 2, name: "Legenito (Flash2149)", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 3, name: "TechFaller (cris Larkin)", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 4, name: "Ohioskibidi681039", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 5, name: "Jaydenazazax", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 6, name: "CertainlyJae", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 7, name: "hellostranger3ia", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 8, name: "BoltApache", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 9, name: "Vuntsum", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 10, name: "Recker3000fr", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 11, name: "Pyve (Baddash)", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 12, name: "Govnetobratcina", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 13, name: "Toby73357", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 14, name: "sloppymadgames", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 15, name: "Big_bubba510", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 16, name: "Dr2gamer", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 17, name: "Mrapplezs", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 18, name: "Abeliglesias23", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 19, name: "TerminatorAltAccount", school: "N/A", record: "0-0", prev: "-" },
-      { rank: 20, name: "iLoveLeBronJames6769", school: "N/A", record: "0-0", prev: "-" }
-    ],
-    
-    week1: [
-     { rank: 1, name: "Releases Sunday, January 25th", school: "", record: "", prev: "" }
-    ]
-   
-  };
+const rankingsData = {
+  preseason: [
+    { rank: 1, name: "Dreday356og", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 2, name: "Legenito (Flash2149)", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 3, name: "TechFaller (cris Larkin)", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 4, name: "Ohioskibidi681039", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 5, name: "Jaydenazazax", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 6, name: "CertainlyJae", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 7, name: "hellostranger3ia", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 8, name: "BoltApache", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 9, name: "Vuntsum", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 10, name: "Recker3000fr", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 11, name: "Pyve (Baddash)", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 12, name: "Govnetobratcina", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 13, name: "Toby73357", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 14, name: "sloppymadgames", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 15, name: "Big_bubba510", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 16, name: "Dr2gamer", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 17, name: "Mrapplezs", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 18, name: "Abeliglesias23", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 19, name: "TerminatorAltAccount", school: "N/A", record: "0-0", prev: "-" },
+    { rank: 20, name: "iLoveLeBronJames6769", school: "N/A", record: "0-0", prev: "-" }
+  ],
+  week1: [
+    { rank: 1, name: "Releases Sunday, January 25th", school: "", record: "", prev: "" }
+  ]
+};
 
-  function updateTable() {
-    const week = document.getElementById('weekSelect').value;
-    const tbody = document.querySelector('#rankingsTable tbody');
-    tbody.innerHTML = ''; // clear current table
+function updateTable() {
+  const week = document.getElementById("weekSelect").value;
+  const tbody = document.querySelector("#rankingsTable tbody");
+  tbody.innerHTML = "";
 
-    rankingsData[week].forEach(wrestler => {
-      const row = document.createElement('tr');
-      // Display prev as-is (number or string)
-      row.innerHTML = `
-        <td class="rank">${wrestler.rank}</td>
-        <td>${wrestler.name}</td>
-        <td>${wrestler.school}</td>
-        <td class="record">${wrestler.record}</td>
-        <td class="prev-rank">${wrestler.prev}</td>
-      `;
-      tbody.appendChild(row);
-    });
-  }
+  rankingsData[week].forEach(wrestler => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="rank">${wrestler.rank}</td>
+      <td>${wrestler.name}</td>
+      <td>${wrestler.school}</td>
+      <td class="record">${wrestler.record}</td>
+      <td class="prev-rank">${wrestler.prev}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
 
-  // Initialize table with Week 1
-  updateTable();
+updateTable();
 </script>
+
 </body>
 </html>
+
 
