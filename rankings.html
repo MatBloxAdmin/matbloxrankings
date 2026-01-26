@@ -135,8 +135,8 @@ section {
 
 <label for="weekSelect">Select Week:</label>
 <select id="weekSelect" onchange="updateTable()">
-    <option value="preseason">Preseason</option>
   <option value="week1">Week 1</option>
+  <option value="preseason">Preseason</option>
 </select>
 
 <table id="rankingsTable">
@@ -199,7 +199,7 @@ const rankingsData = {
     { rank: 18, name: "Abeliglesias23", school: "N/A", record: "0-0", prev: "18" },
     { rank: 19, name: "TerminatorAltAccount", school: "N/A", record: "0-0", prev: "19" },
     { rank: 20, name: "iLoveLeBronJames6769", school: "N/A", record: "0-0", prev: "20" }
-  ],
+  ]
 
 function updateTable() {
   const week = document.getElementById("weekSelect").value;
